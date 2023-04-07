@@ -1,4 +1,4 @@
-# go-gpt-functions
+# go-gpt-functions (AI-Powered Magic Functions)
 Using Openai's gpt models to implement magic function for golang (make a spell to get all you want！)
 
 
@@ -6,6 +6,8 @@ Using Openai's gpt models to implement magic function for golang (make a spell t
 func main() {
 	ctx := context.TODO()
 	magicObj := magic.NewMagicObject("YOUR_API_KEY")
+    // magicObj.SetDefaultEngineModel("gpt-4-0314") //if you have access to gpt-4 model
+	// magicObj.SetDefaultTemperature(0.5)
 	response, err := magicObj.DoMagic(ctx, "Give me a random number between 0 and 100", nil)
 	if err != nil {
 		log.Print("doMagic err: ", err)

@@ -47,7 +47,14 @@ func (m *MagicObject) SetDefaultTemperature(temperature float32) {
 	} else {
 		m.Temperature = temperature
 	}
+}
 
+func (m *MagicObject) SetDefaultMaxTokens(maxTokens int) {
+	if maxTokens <= 0 {
+		m.MaxTokens = 500
+	} else {
+		m.MaxTokens = maxTokens
+	}
 }
 
 func (m *MagicObject) DoMagic(ctx context.Context, prompt string, args map[string]interface{}) (string, error) {
