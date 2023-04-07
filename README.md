@@ -3,7 +3,7 @@
 
 
 
-# Usage:
+## Usage:
 
 ```go
 func main() {
