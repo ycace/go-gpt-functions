@@ -41,7 +41,7 @@ func main() {
     	// Output: magicResponse user info: 
 	// {"name": "Emily", "age": 27, "email": "emily@example.com", "city": "New York", "hobby": "photography"}
 
-    response, err = magicObj.DoMagic(ctx, "Generate me a random user information with six random properties and values, in json format.", map[string]interface{}{
+    	response, err = magicObj.DoMagic(ctx, "Generate me a random user information with six random properties and values, in json format.", map[string]interface{}{
 		"name": "ycace",
 		"age":  "18",
 	})
