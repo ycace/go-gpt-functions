@@ -33,5 +33,16 @@ func main() {
 	}
 	log.Print("magicResponse user info: ", response)
     // magicResponse user info: {"name": "Emily", "age": 27, "email": "emily@example.com", "city": "New York", "hobby": "photography"}
+
+    response, err = magicObj.DoMagic(ctx, "Generate me a random user information with six random properties and values, in json format.", map[string]interface{}{
+		"name": "ycace",
+		"age":  "18",
+	})
+	if err != nil {
+		log.Print("doMagic err: ", err)
+	}
+	log.Print("magicResponse user info with input: ", response)
+    // magicResponse user info with input: {"name": "ycace", "age": 18, "gender": "male", "email": "ycace@example.com", "address": "123 Main St", "phone": "555-555-5555"}
+
 }
 ```

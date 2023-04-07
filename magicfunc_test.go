@@ -29,9 +29,18 @@ func TestMagicObject(t *testing.T) {
 	}
 	log.Print("magicResponse json word info: ", response)
 
-	response, err = magicObj.DoMagic(ctx, "Generate me a random user information with five random properties and values, in json format", nil)
+	response, err = magicObj.DoMagic(ctx, "Generate me a random user information with five random properties and values, in json format.", nil)
 	if err != nil {
 		t.Error("doMagic err: ", err)
 	}
 	log.Print("magicResponse user info: ", response)
+
+	response, err = magicObj.DoMagic(ctx, "Generate me a random user information with six random properties and values, in json format.", map[string]interface{}{
+		"name": "ycace",
+		"age":  "18",
+	})
+	if err != nil {
+		t.Error("doMagic err: ", err)
+	}
+	log.Print("magicResponse user info with input: ", response)
 }

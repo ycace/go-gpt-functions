@@ -52,6 +52,14 @@ func (m *MagicObject) SetDefaultTemperature(temperature float32) {
 
 func (m *MagicObject) DoMagic(ctx context.Context, prompt string, args map[string]interface{}) (string, error) {
 	client := openai.NewClient(m.ApiKey)
+	userPrompt := prompt
+	argsString := " and these inputs may help you: "
+	if args != nil {
+		for key, value := range args {
+			argsString += key + "=" + value.(string) + " "
+		}
+		userPrompt = userPrompt + argsString
+	}
 	request := openai.ChatCompletionRequest{
 		Model:     openai.GPT3Dot5Turbo,
 		MaxTokens: m.MaxTokens,
@@ -62,7 +70,7 @@ func (m *MagicObject) DoMagic(ctx context.Context, prompt string, args map[strin
 			},
 			{
 				Role:    openai.ChatMessageRoleUser,
-				Content: prompt,
+				Content: userPrompt,
 			},
 		},
 		Temperature: m.Temperature,
