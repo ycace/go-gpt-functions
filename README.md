@@ -1,2 +1,37 @@
 # go-gpt-functions
 Using Openai's gpt models to implement magic function for golang (make a spell to get all you want！)
+
+
+```go
+func main() {
+	ctx := context.TODO()
+	magicObj := magic.NewMagicObject("YOUR_API_KEY")
+	response, err := magicObj.DoMagic(ctx, "Give me a random number between 0 and 100", nil)
+	if err != nil {
+		log.Print("doMagic err: ", err)
+	}
+	log.Print("magicResponse random: ", response)
+    // magicResponse random: 62
+
+	response, err = magicObj.DoMagic(ctx, "Give me a simple user tip for server errors", nil)
+	if err != nil {
+		log.Print("doMagic err: ", err)
+	}
+	log.Print("magicResponse server err info: ", response)
+    // magicResponse server err info: Try refreshing the page or clearing your browser's cache and cookies. If the error persists, contact the website's support team for assistance
+
+	response, err = magicObj.DoMagic(ctx, "Output information about the word 'default', in json format", nil)
+	if err != nil {
+		log.Print("doMagic err: ", err)
+	}
+	log.Print("magicResponse json word info: ", response)
+    //magicResponse json word info: {"word": "default", "type": "noun", "definition": "the preselected option or parameter in a software application or other system", "synonyms": ["setting", "preference", "choice"], "antonyms": ["nonpayment", "delinquency"]}
+
+	response, err = magicObj.DoMagic(ctx, "Generate me a random user information with five random properties and values, in json format", nil)
+	if err != nil {
+		log.Print("doMagic err: ", err)
+	}
+	log.Print("magicResponse user info: ", response)
+    // magicResponse user info: {"name": "Emily", "age": 27, "email": "emily@example.com", "city": "New York", "hobby": "photography"}
+}
+```
